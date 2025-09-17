@@ -47,6 +47,8 @@ public class Event {
     @NotNull
     @Setter @Getter
     private String createdBy;
+    @Setter @Getter
+    private int quantity;
 
     private String imageUrl;  // URL for cloud storage or web access
 
