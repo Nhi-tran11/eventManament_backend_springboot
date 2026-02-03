@@ -13,4 +13,6 @@ public interface AttendeeInformationRepository extends MongoRepository<AttendeeI
 
     List<AttendeeInformation> findByEvent(Event event);
     List<AttendeeInformation> findByEventCreatedBy(String eventCreatedBy);
+    
+    Optional<AttendeeInformation> findByIdempotencyKey(String idempotencyKey);
 }

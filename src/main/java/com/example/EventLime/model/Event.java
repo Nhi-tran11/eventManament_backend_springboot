@@ -2,7 +2,6 @@ package com.example.EventLime.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -28,7 +27,7 @@ public class Event {
     private LocalDate  date;
     @NotNull
     @Setter @Getter
-    private LocalTime time;
+    private String time;  // Changed from LocalTime to String to match frontend
     @Setter @Getter
     @NotNull
     private double price;

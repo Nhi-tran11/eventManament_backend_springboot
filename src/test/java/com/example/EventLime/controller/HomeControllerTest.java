@@ -44,7 +44,9 @@ class HomeControllerTest {
 
     @Test
     void signup_ValidUser_ReturnsCreatedUser() throws Exception {
-        User newUser = new User("test@example.com", "password123", null);
+        User newUser = new User();
+        newUser.setEmail("test@example.com");
+        newUser.setPassword("password123");
 
         mockMvc.perform(post("/signup")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -64,7 +66,9 @@ class HomeControllerTest {
 
     @Test
     void signup_EmptyEmail_Returns400() throws Exception {
-        User invalidUser = new User("", "password123", null);
+        User invalidUser = new User();
+        invalidUser.setEmail("");
+        invalidUser.setPassword("password123");
 
         mockMvc.perform(post("/signup")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -74,7 +78,9 @@ class HomeControllerTest {
 
     @Test
     void signup_EmptyPassword_Returns400() throws Exception {
-        User invalidUser = new User("test@example.com", "", null);
+        User invalidUser = new User();
+        invalidUser.setEmail("test@example.com");
+        invalidUser.setPassword("");
 
         mockMvc.perform(post("/signup")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -94,7 +100,9 @@ class HomeControllerTest {
 
     @Test
     void signup_NoContentType_Returns415() throws Exception {
-        User newUser = new User("test@example.com", "password123", null);
+        User newUser = new User();
+        newUser.setEmail("test@example.com");
+        newUser.setPassword("password123");
 
         mockMvc.perform(post("/signup")
                 .content(objectMapper.writeValueAsString(newUser)))

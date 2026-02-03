@@ -12,6 +12,9 @@ import lombok.Setter;
 @Data
 @Document  (collection = "attendeeInformation")
 public class AttendeeInformation {
+    @Getter @Setter
+    private String id;
+    
     @NotNull @Getter  @Setter
     private Event event;
     @NotNull @Getter  @Setter
@@ -24,6 +27,9 @@ public class AttendeeInformation {
     @NotBlank (message = "Phone number is required") @Getter  @Setter
     private String phoneNumber;
     private String specialRequest;
+    
+    @Getter @Setter
+    private String idempotencyKey;
 
 
 
